@@ -9,14 +9,18 @@ grade_values = {'IG':0,'G':1,'VG':3,'MVG':5}
 while student_year < 4:
     #Här nollställer vi genomsnittsbetygen innan fösta genomräkningen.
     avg_grade = 0    
-    print("Studenten går i åk:",student_year)
-    
+    print("\nStudenten går i åk:",student_year,"\n")
+    for i in grade_values.keys():
+        print(i,'=',grade_values[i],"poäng.")
+    print("\n\n")
     #Våran felhantering för inputen i loopen.    
     try:
         #Använder en for-loop för att gå igenom alla kurser samt dictionaryn för att hämta värden för respektive betyg.    
         for i in courses:
             #har en upper här (nedan) eftersom keys:en i dictionaryn är uppercase, men med upper() funktionen, så spelar det ingen roll om det är stor eller liten bokstav.
-            avg_grade += grade_values[input("Vad får eleven i " + i + ": ").upper()] 
+            user_input = input("Vad får eleven i " + i + ": ").upper()
+            avg_grade += grade_values[user_input]
+            print(user_input,":",grade_values[user_input])
     except:
         print("Fel input, var god och skriv endast: IG , G , VG , MVG .")
         #Har en continue här för att starta om loopen från "början" så att säga, eftersom if-statsen
@@ -36,7 +40,7 @@ while student_year < 4:
         #Lägger in if-satsen i en if-sats så att man minskar redundans genom att skriva en egen elif för specialfallet.
         if avg_grade == 5:
             #Specialutskrift om man har fått fullpott - alla MVG.
-            print("Grattis, ALLA MVG, du får en guldstjärna!")
+            print("*** Grattis, ALLA MVG, du får en guldstjärna! ***")
         print("### Grattis, du avancerar till nästa år! ### \n")
         #En avskiljare (med tecken) så det blir mer läsbart i output.
         print("------------------------------------------------------------------------------\n")
