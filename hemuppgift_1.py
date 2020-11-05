@@ -12,7 +12,7 @@ while student_year < 4:
     print("\nStudenten går i åk:",student_year,"\n")
     for i in grade_values.keys():
         print(i,'=',grade_values[i],"poäng.")
-    print("\n\n")
+    print("")
     #Våran felhantering för inputen i loopen.    
     try:
         #Använder en for-loop för att gå igenom alla kurser samt dictionaryn för att hämta värden för respektive betyg.    
